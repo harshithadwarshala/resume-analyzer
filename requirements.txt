@@ -1,7 +1,6 @@
 streamlit
 pandas
+pdfplumber
 scikit-learn
 pypdf
 reportlab
-pytesseract
-pdf2image
