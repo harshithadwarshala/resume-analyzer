@@ -1264,14 +1264,11 @@ if multiple_resumes:
                     key=lambda x: x["Match Percentage"],
                     reverse=True
                 )
-
-                st.write(
-                    st.markdown("""
+                st.markdown("""
 <h3 style="color:#174F91; margin:20px 0 12px 0;">
     📊 Candidate Comparison Table
 </h3>
 """, unsafe_allow_html=True)
-                )
 
                 st.dataframe(
                     comparison_results,
