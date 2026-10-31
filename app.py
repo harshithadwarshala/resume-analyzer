@@ -3,7 +3,12 @@ from io import BytesIO
 
 import streamlit as st
 from pypdf import PdfReader
-
+try:
+    import pytesseract
+    from pdf2image import convert_from_bytes
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import (
@@ -304,21 +309,31 @@ def extract_candidate_info(text):
 def extract_resume_text(pdf_file):
 
     pdf_file.seek(0)
+    data = pdf_file.read()
 
-    reader = PdfReader(pdf_file)
+    reader = PdfReader(BytesIO(data))
 
     if reader.is_encrypted:
-
         reader.decrypt("")
 
     text = ""
 
     for page in reader.pages:
-
         text += page.extract_text() or ""
 
-    return text.strip()
+    text = text.strip()
 
+    if len(text) < 50 and OCR_AVAILABLE:
+        try:
+            images = convert_from_bytes(data, dpi=200)
+            text = "\n".join(
+                pytesseract.image_to_string(img)
+                for img in images
+            ).strip()
+        except Exception:
+            pass
+
+    return text
 
 # --------------------------------------------------
 # 6. MATCH PERCENTAGE
