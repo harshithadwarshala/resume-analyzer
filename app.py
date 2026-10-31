@@ -23,13 +23,175 @@ st.set_page_config(
     page_icon="📄",
     layout="wide"
 )
+# ---------------------------------------------------------
+# BLUE AND WHITE PROFESSIONAL THEME
+# ---------------------------------------------------------
 
-st.title("📄 AI-Based Resume Analyzer")
+st.markdown("""
+<style>
 
-st.write(
-    "Analyze resumes, identify skills, compare candidates "
-    "and check job description matching."
-)
+.stApp {
+    background-color: #F4F8FF;
+    color: #142B4A;
+}
+
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 1200px;
+}
+
+h1 {
+    color: #123B75 !important;
+    font-weight: 800 !important;
+}
+
+h2, h3 {
+    color: #174F91 !important;
+    font-weight: 700 !important;
+}
+
+p, label, span {
+    color: #263F60;
+}
+
+div[data-testid="stFileUploader"] {
+    background-color: #FFFFFF;
+    border: 2px dashed #6BA5F7;
+    border-radius: 14px;
+    padding: 18px;
+}
+div[data-testid="stFileUploader"] button {
+    background-color: #1266D6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+div[data-testid="stFileUploader"] button:hover {
+    background-color: #0B4FA8;
+    color: white;
+}
+.stTextArea textarea {
+    background-color: #FFFFFF;
+    border: 1px solid #B8D4F5;
+    border-radius: 10px;
+    color: #142B4A;
+}
+.stTextArea textarea:focus {
+    border: 2px solid #3988F5;
+    box-shadow: 0 0 5px rgba(57, 136, 245, 0.3);
+}
+.stButton > button {
+    background: linear-gradient(90deg, #1266D6, #3988F5);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-weight: 600;
+}
+
+.stButton > button:hover {
+    background: #0B4FA8;
+    color: white;
+    border: none;
+}
+
+div[data-testid="stMetric"] {
+    background-color: #FFFFFF;
+    border: 1px solid #D5E5FA;
+    border-radius: 12px;
+    padding: 16px;
+}
+div[data-testid="stMetric"] label {
+    color: #174F91 !important;
+    font-weight: 600;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    color: #1266D6 !important;
+    font-weight: 800;
+}
+div[data-testid="stExpander"] {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #D5E5FA;
+}
+
+hr {
+    border-color: #D5E5FA;
+}
+hr {
+    border-color: #D5E5FA;
+}
+h2, h3 {
+    letter-spacing: 0.3px;
+}
+
+.stCaption {
+    color: #607D9F !important;
+    font-size: 13px;
+}
+
+.stProgress > div > div {
+    background-color: #3988F5;
+    border-radius: 10px;
+}
+div[data-testid="stAlert"] {
+    background-color: #FFFFFF;
+    border: 1px solid #D5E5FA;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+div[data-testid="stProgressBar"] > div {
+    background-color: #3988F5;
+}
+
+div[data-testid="stDataFrame"] {
+    border: 1px solid #D5E5FA;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div style="
+    background: linear-gradient(110deg, #0B4FA8, #3988F5);
+    padding: 28px 32px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+">
+    <h1 style="color: white !important; margin: 0;">
+        📄 AI Resume Analyzer
+    </h1>
+    <p style="color: #EAF3FF; font-size: 16px; margin-top: 8px;">
+        Smart Resume Screening • Skill Matching • ATS Insights
+    </p>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align:center; margin: 15px 0 20px 0;">
+    <h3 style="color:#174F91;">Your Smart Resume Screening Platform</h3>
+    <p style="color:#526A85;">
+        Analyze resumes, identify skills and discover job compatibility.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.info("📄 Resume Analysis")
+
+with col2:
+    st.info("🎯 Skill Matching")
+
+with col3:
+    st.info("📊 ATS Insights")
 
 
 # --------------------------------------------------
@@ -228,7 +390,6 @@ def find_experience(text):
 # --------------------------------------------------
 # 9. RESUME SUGGESTIONS
 # --------------------------------------------------
-
 def create_suggestions(
     missing_skills,
     education,
@@ -499,7 +660,22 @@ def generate_pdf_report(
 
 st.divider()
 
-st.subheader("1. Job Description")
+st.markdown("""
+<div style="
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 5px solid #3988F5;
+    margin: 15px 0;
+">
+    <h3 style="color:#174F91; margin:0;">
+        💼 Job Description
+    </h3>
+    <p style="color:#526A85; margin:6px 0 0 0;">
+        Paste the job requirements to check resume compatibility.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 job_description = st.text_area(
     "Paste Job Description",
@@ -520,7 +696,22 @@ job_description = st.text_area(
 
 st.divider()
 
-st.subheader("2. Upload Resume")
+st.markdown("""
+<div style="
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 5px solid #3988F5;
+    margin: 15px 0;
+">
+    <h3 style="color:#174F91; margin:0;">
+        📤 Upload Your Resume
+    </h3>
+    <p style="color:#526A85; margin:6px 0 0 0;">
+        Upload your PDF resume to begin the AI-powered analysis.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 uploaded_resume = st.file_uploader(
     "Upload Resume PDF",
@@ -905,14 +1096,35 @@ if uploaded_resume:
 
 st.divider()
 
-st.subheader(
-    "14. Multiple Resume Comparison"
-)
-
-st.write(
-    "Upload 2–4 candidate resumes and compare "
-    "them against the same job description."
-)
+st.markdown("""
+<div style="
+    background-color: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    border-left: 5px solid #3988F5;
+    margin: 15px 0;
+">
+    <h3 style="color:#174F91; margin:0;">
+        🏆 Multiple Resume Comparison
+    </h3>
+    <p style="color:#526A85; margin:6px 0 0 0;">
+        Compare multiple candidates and identify the best job match.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div style="
+    background-color: #EAF3FF;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 12px 0;
+">
+    <p style="color:#174F91; margin:0;">
+        📌 Upload 2–4 candidate resumes and compare
+        them against the same job description.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 multiple_resumes = st.file_uploader(
     "Upload Candidate Resumes",
@@ -1039,7 +1251,11 @@ if multiple_resumes:
                 )
 
                 st.write(
-                    "### Candidate Comparison Table"
+                    st.markdown("""
+<h3 style="color:#174F91; margin:20px 0 12px 0;">
+    📊 Candidate Comparison Table
+</h3>
+""", unsafe_allow_html=True)
                 )
 
                 st.dataframe(
@@ -1048,9 +1264,12 @@ if multiple_resumes:
                     hide_index=True
                 )
 
-                st.write(
-                    "### Candidate Match Percentage Chart"
-                )
+                st.markdown("""
+<h3 style="color:#174F91; margin:20px 0 12px 0;">
+    📈 Candidate Match Percentage Chart
+</h3>
+""", unsafe_allow_html=True)
+                
 
                 chart_data = {
                     item["Candidate"]
@@ -1064,9 +1283,12 @@ if multiple_resumes:
 
                 best_candidate = comparison_results[0]
 
-                st.write(
-                    "### Best Matching Candidate"
-                )
+
+                st.markdown("""
+<h3 style="color:#174F91; margin:20px 0 12px 0;">
+    🏆 Best Matching Candidate
+</h3>
+""", unsafe_allow_html=True)
 
                 st.success(
                     "🏆 Best Matching Resume: "
@@ -1078,9 +1300,11 @@ if multiple_resumes:
                     f"{best_candidate['Match Percentage']:.2f}%"
                 )
 
-                st.write(
-                    "### Candidate Ranking"
-                )
+                st.markdown("""
+<h3 style="color:#174F91; margin:20px 0 12px 0;">
+    🥇 Candidate Ranking
+</h3>
+""", unsafe_allow_html=True)
 
                 for rank, candidate in enumerate(
                     comparison_results,
@@ -1105,7 +1329,19 @@ if multiple_resumes:
 
 st.divider()
 
-st.caption(
-    "AI-Based Resume Analyzer | Python | Streamlit | "
-    "PDF Processing | ATS Keyword Analysis"
-)
+st.markdown("""
+<div style="
+    background: linear-gradient(110deg, #0B4FA8, #3988F5);
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+">
+    <p style="color:white; margin:0; font-weight:600;">
+        📄 AI-Based Resume Analyzer
+    </p>
+    <p style="color:#EAF3FF; margin:6px 0 0 0; font-size:13px;">
+        Python | Streamlit | PDF Processing | ATS Keyword Analysis
+    </p>
+</div>
+""", unsafe_allow_html=True)
