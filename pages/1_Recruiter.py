@@ -3,7 +3,7 @@ import db
 import auth
 
 st.set_page_config(page_title="Recruiter", page_icon="💼", layout="wide")
-
+auth.require_login()
 db.init_db()
 
 st.title("💼 Recruiter Dashboard")
