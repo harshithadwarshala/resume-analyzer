@@ -330,6 +330,7 @@ def extract_resume_text(pdf_file):
                 pytesseract.image_to_string(img)
                 for img in images
             ).strip()
+            st.write("OCR extracted text:", text[:500])
         except Exception:
             pass
 
