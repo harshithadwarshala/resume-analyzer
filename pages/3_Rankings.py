@@ -1,8 +1,9 @@
 import streamlit as st
 import db
+import auth
 
 st.set_page_config(page_title="Rankings", page_icon="🏆", layout="wide")
-
+auth.require_login()
 db.init_db()
 
 st.title("🏆 Candidate Rankings")

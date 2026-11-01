@@ -1,5 +1,6 @@
 import streamlit as st
 import db
+import auth
 
 st.set_page_config(page_title="Recruiter", page_icon="💼", layout="wide")
 
